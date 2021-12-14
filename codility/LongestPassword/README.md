@@ -1,5 +1,6 @@
 # 문제
-- (English)
+> (English)
+
 You would like to set a password for a bank account. However, there are three restrictions on the format of the password:
 
 it has to contain only alphanumerical characters (a−z, A−Z, 0−9);
@@ -25,7 +26,8 @@ In your solution, focus on correctness. The performance of your solution will no
 
 Copyright 2009–2021 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 
-- (한글)
+> (한글)
+
 은행 계좌의 비밀번호를 설정하고 싶습니다. 그러나 암호 형식에는 세 가지 제한이 있습니다.
 
 영숫자 문자(a-z, A-Z, 0-9)만 포함해야 합니다.
