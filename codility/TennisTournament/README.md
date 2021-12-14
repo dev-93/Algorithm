@@ -1,5 +1,5 @@
 # 문제
-> (English)
+- (English)
 
 You are hosting a tennis tournament. P players, who will take part in the first round of this tournament, are already registered and you have reserved C tennis courts for the matches. Exactly two players play in each game and only one game can be played on each court at any given time. You want to host the maximum possible number of games starting at the same time (in order to finish the first round quickly).
 
@@ -24,7 +24,7 @@ In your solution, focus on correctness. The performance of your solution will no
 
 Copyright 2009–2021 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 
-> (한글)
+- (한글)
 
 테니스 대회를 주최하고 있습니다. 이 토너먼트의 첫 번째 라운드에 참가할 P 플레이어는 이미 등록되어 있으며 경기를 위해 C 테니스 코트를 예약했습니다. 각 게임에 정확히 두 명의 플레이어가 플레이하며 주어진 시간에 각 코트에서 한 게임만 플레이할 수 있습니다. (첫 번째 라운드를 빨리 끝내기 위해) 동시에 시작하는 가능한 최대 게임 수를 호스팅하려고 합니다.
 
