@@ -1,5 +1,5 @@
 # 문제
-- (English)
+## (English)
 You are hosting a tennis tournament. P players, who will take part in the first round of this tournament, are already registered and you have reserved C tennis courts for the matches. Exactly two players play in each game and only one game can be played on each court at any given time. You want to host the maximum possible number of games starting at the same time (in order to finish the first round quickly).
 
 How many games can be hosted in parallel simultaneously?
