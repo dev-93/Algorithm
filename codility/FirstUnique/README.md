@@ -96,4 +96,6 @@ N은 [1..100,000] 범위 내의 정수입니다.
 ### [1차풀이](https://app.codility.com/demo/results/trainingYYWV44-3GN/) (90 점)
 - **time complexity: O(N * log(N))** 
 - OddOccurrencesInArray를 푼것과 같은 방법을 사용했다. element에 값을 가지고 있으면 삭제해주고, 없으면 add해주는 방식입니다. 여기서 Array 형식으로 result에 담기게 되는데, result 배열에 length가 있다면첫번째 유니크한 값을 가장 낮은 인덱스의 값을 리턴해줘야 하기 때문에 result의 0번째 값을 리턴하고 없으면 -1을 리턴하게 하였습니다.
-- Correctness의 tests 중에 한개가 틀렸습니다.    
+- Correctness의 tests 중에 한개가 틀렸습니다. 
+- For example, for the input [1, 1, 1, 2, 3, 3, 3] the solution returned a wrong answer (got 1 expected 2).
+- 틀린이유: 위의 예시에서 3번째 1은 다시 추가되기 때문에, result의 첫번째 값으로는 1이 출력되게 됩니다.
