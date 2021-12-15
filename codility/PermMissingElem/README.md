@@ -62,7 +62,7 @@ A의 요소는 모두 별개입니다.
 - **time complexity: O(N) or O(N * log(N))** 
 - 1차 풀이에서 배열 A가 빈배열로 주어진다면 1을 리턴해줘야 한다. 배열 A에서 1이 없다면 1을 리턴해줘야 한다.
 
-### [3차풀이](https://app.codility.com/demo/results/training44JB8N-4FZ/) (100 점)
+### [3차풀이](https://app.codility.com/demo/results/trainingYY9YSV-H8T/) (100 점)
 - **time complexity: O(N) or O(N * log(N))** 
 - 2차 풀이와 비슷하지만, 각 요소가 1부터 시작하지만, 1이 없다면 2부터 시작할 것입니다. 이때 배열 A의 첫번째 값이 즉 A[0]가 2라면 1을 리턴해줘야 합니다.
 - 2차와 3차 풀이의를 비교해보면 아래와 같이 성능이 미세하지만 차이가 있다. 왼쪽이 2차, 오른쪽이 3차 풀이
