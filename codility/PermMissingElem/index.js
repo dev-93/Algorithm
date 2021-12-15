@@ -3,7 +3,7 @@ function solution(A) {
 
     A.sort((a,b) => a-b);
     
-    if (A.indexOf(1) === -1) {
+    if (A[0] === 2) {
         return 1;
     };
     
