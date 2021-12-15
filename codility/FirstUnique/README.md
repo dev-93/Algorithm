@@ -99,3 +99,7 @@ N은 [1..100,000] 범위 내의 정수입니다.
 - Correctness의 tests 중에 한개가 틀렸습니다. 
 - For example, for the input [1, 1, 1, 2, 3, 3, 3] the solution returned a wrong answer (got 1 expected 2).
 - 틀린이유: 위의 예시에서 3번째 1은 다시 추가되기 때문에, result의 첫번째 값으로는 1이 출력되게 됩니다.
+
+### [2차풀이](https://app.codility.com/demo/results/trainingENXWN9-KQH/) (100 점)
+- **time complexity: O(N * log(N))** 
+- 1차 풀이에서, 삭제된 값들을 deletedStroe 배열에 담아주고, add 할때 deletedStore에 없는 요소들만 추가하는 방식으로 수정하였습니다.
