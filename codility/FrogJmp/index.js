@@ -1,10 +1,5 @@
 function solution(X, Y, D) {
-    let count = 0;
+    const result = (Y -X) / D;
 
-    while(X < Y) {
-        X += D;
-        count ++;
-    };
-
-    return count;
+    return Math.ceil(result);
 }
