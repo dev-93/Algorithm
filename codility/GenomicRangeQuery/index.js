@@ -1,34 +1,27 @@
 function solution(S, P, Q) {
     const result = [];
-    
+
     for(let i = 0; i < P.length; i++) {
         const pIndex = P[i];
         const qIndex = Q[i];
-        const newArr = [];
         
-        for (let j = pIndex; j < qIndex + 1; j++) {
-            newArr.push(S[j]);
-        }
+        const newStrings = S.slice(pIndex, qIndex + 1);
 
-        newArr.sort();
-
-        switch(newArr[0]) {
-            case "A": 
+        switch(true) {
+            case (newStrings.indexOf('A') !== -1):
                 result.push(1);
                 break;
-            case "C": 
+            case (newStrings.indexOf('C') !== -1):
                 result.push(2);
                 break;
-            case "G": 
+            case (newStrings.indexOf('G') !== -1):
                 result.push(3);
                 break;
-            case "T": 
+            case (newStrings.indexOf('T') !== -1):
                 result.push(4);
                 break;
-            default:
-                new Error("error")
         }
-    }
+    };
 
     return result;
 }

@@ -48,3 +48,9 @@ Copyright 2009–2021 by Codility Limited. All Rights Reserved. Unauthorized cop
 ### [1차풀이](https://app.codility.com/demo/results/training3V5Q83-NVV/) (62점)
 - **time complexity: O(N * M)** 
 - P와 Q의 인덱스만큼 새로운 배열을 만들고 다시 루프문을 돌리는 방식을 사용해서 알파벳으로 정렬한뒤, 첫번째 알파벳으로 result 배열에 넣어주고 배열자체를 리턴하였는데, Time Error가 났다. 예외사항으로 100,000개를 돌리다 보니까 그런것이다
+
+### [2차풀이](https://app.codility.com/demo/results/trainingXRQ377-AY9/) (100점)
+- **time complexity: O(N + M)**
+- P의 배열의 갯수만큼 루프문을 돌면서 문자열S의 P의 index ~ (Q + 1)의 index인 newStrings를 만든다.
+- 새롭게 만든 문자열에서 A,C,G,T가 있다면 각 값 1,2,3,4에 를 result배열에 넣습니다.
+- 이때, 작은 숫자를 result 배열에 넣어야 하니까 제일 작은 값인 1부터 넣어야 합니다.
