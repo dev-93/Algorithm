@@ -1,34 +1,51 @@
 # 문제
 > (English)
 
-This is a demo task.
+A string S consisting of N characters is called properly nested if:
+
+S is empty;
+S has the form "(U)" where U is a properly nested string;
+S has the form "VW" where V and W are properly nested strings.
+For example, string "(()(())())" is properly nested but string "())" isn't.
+
 Write a function:
-function solution(A);
-that, given an array A of N integers, returns the smallest positive integer (greater than 0) that does not occur in A.
-For example, given A = [1, 3, 6, 4, 1, 2], the function should return 5.
-Given A = [1, 2, 3], the function should return 4.
-Given A = [−1, −3], the function should return 1.
+function solution(S);
+
+that, given a string S consisting of N characters, returns 1 if string S is properly nested and 0 otherwise.
+
+For example, given S = "(()(())())", the function should return 1 and given S = "())", the function should return 0, as explained above.
+
 Write an efficient algorithm for the following assumptions:
 
-N is an integer within the range [1..100,000];
-each element of array A is an integer within the range [−1,000,000..1,000,000].
+N is an integer within the range [0..1,000,000];
+string S consists only of the characters "(" and/or ")".
 Copyright 2009–2021 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.
 
 > (한글)
 
-N 정수의 배열 A가 주어지면 A에서 발생하지 않는 가장 작은 양의 정수(0보다 큼)를 반환합니다.
-예를 들어 A = [1, 3, 6, 4, 1, 2]가 주어지면 함수는 5를 반환해야 합니다.
-A = [1, 2, 3]이 주어지면 함수는 4를 반환해야 합니다.
-A = [−1, −3]이 주어지면 함수는 1을 반환해야 합니다.
-다음 가정에 대한 효율적인 알고리즘을 작성하십시오.
+N개의 문자로 구성된 문자열 S는 다음과 같은 경우 적절하게 중첩되어 호출됩니다.
 
-N은 [1..100,000] 범위 내의 정수입니다.
-배열 A의 각 요소는 [−1,000,000..1,000,000] 범위의 정수입니다.
+S는 비어 있습니다.
+S는 "(U)" 형식을 갖습니다. 여기서 U는 적절하게 중첩된 문자열입니다.
+S는 V와 W가 적절하게 중첩된 문자열인 "VW" 형식을 갖습니다.
+예를 들어, 문자열 "(()(())())"은 적절하게 중첩되지만 문자열 "())"은 중첩되지 않습니다.
+
+Write a function:
+function solution(S);
+
+N개의 문자로 구성된 문자열 S가 주어지면 문자열 S가 적절하게 중첩되면 1을 반환하고 그렇지 않으면 0을 반환합니다.
+예를 들어, S = "(()(())())"이 주어지면 함수는 1을 반환해야 하고 S = "())"이면 위에서 설명한 대로 함수는 0을 반환해야 합니다.
+
+다음 가정에 대한 효율적인 알고리즘을 작성하십시오.
+N은 [0..1,000,000] 범위 내의 정수입니다.
+문자열 S는 "(" 및/또는 ")" 문자로만 구성됩니다.
 
 ## 풀이
-### [1차풀이](https://app.codility.com/demo/results/trainingA4HJM7-V73/) (100점)
-- **time complexity: O(N) or O(N * log(N))** 
-- 문제에서 0보다 큰 양의 정수중 가장 작은 값을 리턴해야한다고 주어졌다.
-- 리턴되는 값은 최소 1이상 이어야 한다. 처음 min 값을 1로 초기화 시킨다.
-- 오름차순으로 정렬한 뒤, map을 이용한 루프문을 돌면서 num이 0보다 크고 min과 같다면 min에 1씩 더한뒤 리턴한다.
-- ES6 이상 문법을 활용하려고 풀려고 노력하였다.
+### [1차풀이](https://app.codility.com/demo/results/trainingEHCYHX-VPN/) (100점)
+- **time complexity: O(N))** 
+- 문자열 S는 '(' 또는 ')'로 구성되어 있습니다. 
+- 문제는 Stack의 개념으로, (로 시작하면 result 배열에 넣어준다
+- 그렇지 않고, result 배열 마지막이 '('라면 result 배열 마지막에서 빼준다.
+- result 배열의 길이가 있으면(중첩되지 않은게 있으면) 0을 리턴하고, 그렇지 않으면 1을 리턴한다
+- 문자열 S가 '())'라면 맞지 않는다. 0을 리턴해야 하는데, 이때는 push를 해주게 되어 0을 리턴한다.
+- 예외사항으로 S의 길이가 0인 빈문자열이 주어진다면 1을 리턴한다
