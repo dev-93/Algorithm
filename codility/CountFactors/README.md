@@ -38,18 +38,25 @@ N은 [1..2,147,483,647] 범위의 정수입니다.
 
 ```javascript
 function solution(N) {
-    let index = 1;
-    let count = 0;
+    if (N === 1) return 1;
 
-    while (index <= N) {
-        if(N % index === 0) {
+    let count = 1;
+    const sqrtN = Math.sqrt(N);
+
+    for (let i =2; i < sqrtN; i++) {
+        if(N % i === 0) {
             count++;
         }
-        index++;
     }
 
+    count = count * 2;
+
+    if(sqrtN % 1 === 0) {
+        count++;
+    }
     return count;
 }
+
 ```
 
 - ### [1차풀이](https://app.codility.com/demo/results/training9872FN-FG7/) (78점)
@@ -57,3 +64,9 @@ function solution(N) {
 - 주어진 N의 약수 갯수를 구하는 문제이다.
 - 단순히 O(N)으로 풀었지만, 주어진 갯수가 너무커서 타임에러가 났다.
 
+
+- ### [2차풀이](https://app.codility.com/demo/results/training6REVAH-2AM/) (100점)
+- **time complexity: O(sqrt(N))**
+- N이 1일떄 1을 리턴한다.
+- 제곱근을 구하는 방식을 선택했다. 예를 들어, 24면 1,2,3,4,6,8,12,24
+- 제곱근을 구하여 * 2를 하였고, 제곱근 % 1 이 나누기를 했을 때, 나머지가 0이면 1을 더해준다.
