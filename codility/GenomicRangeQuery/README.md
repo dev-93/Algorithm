@@ -45,6 +45,37 @@ Copyright 2009–2021 by Codility Limited. All Rights Reserved. Unauthorized cop
 
 
 ## 풀이
+
+```javascript
+function solution(S, P, Q) {
+    const result = [];
+
+    for(let i = 0; i < P.length; i++) {
+        const pIndex = P[i];
+        const qIndex = Q[i];
+        
+        const newStrings = S.slice(pIndex, qIndex + 1);
+
+        switch(true) {
+            case (newStrings.indexOf('A') !== -1):
+                result.push(1);
+                break;
+            case (newStrings.indexOf('C') !== -1):
+                result.push(2);
+                break;
+            case (newStrings.indexOf('G') !== -1):
+                result.push(3);
+                break;
+            case (newStrings.indexOf('T') !== -1):
+                result.push(4);
+                break;
+        }
+    };
+
+    return result;
+}
+```
+
 ### [1차풀이](https://app.codility.com/demo/results/training3V5Q83-NVV/) (62점)
 - **time complexity: O(N * M)** 
 - P와 Q의 인덱스만큼 새로운 배열을 만들고 다시 루프문을 돌리는 방식을 사용해서 알파벳으로 정렬한뒤, 첫번째 알파벳으로 result 배열에 넣어주고 배열자체를 리턴하였는데, Time Error가 났다. 예외사항으로 100,000개를 돌리다 보니까 그런것이다

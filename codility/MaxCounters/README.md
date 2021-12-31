@@ -110,6 +110,29 @@ N 및 M은 [1..100,000] 범위 내의 정수입니다.
 저작권 2009–2021 Codility Limited. 판권 소유. 무단 전재, 출판, 공개를 금합니다.
 
 ## 풀이
-### [1차풀이](https://app.codility.com/demo/results/trainingSBMUSY-EVT/) (77점)
+
+```javascript
+function solution(N, A) {
+    const makeArr = Array(N);
+    const resultArr = makeArr.fill(0,0,N);
+    let maxNumber = 0; 
+
+    for(let i = 0; i < A.length; i++) {
+        if (A[i] <= N) {
+            resultArr[A[i] - 1] += 1;
+        } else {
+            resultArr.fill(maxNumber,0,N);
+        }
+
+        if( resultArr[A[i] - 1] > maxNumber ) {
+            maxNumber = resultArr[A[i] - 1];
+        };
+    };
+
+    return resultArr;
+}
+```
+
+### [풀이](https://app.codility.com/demo/results/trainingSBMUSY-EVT/) (77점)
 - 처음에는 N개의 배열에 0이 들어간 배열을 만들어주고, 배열 A의 길이만큼 루프문으로 돌려, 배열 A의 값이 N값 보다 작거나 같으면 만들어진 배열의 인덱스에 +1을 해줍니다. 크다면 배열 전체에 최고 값만큼 넣어줍니다. resultArr 배열의 값이 최고값보다 크면 최고값은 그 값이 되고, 결국 resultArr 배열을 리턴합니다.
 - 틀린 이유는 숫자가 클때, Performance tests에서 TimeOUT ERROR가 났습니다.

@@ -60,6 +60,21 @@ N은 [1..1,000,000] 범위 내의 홀수 정수입니다.
 A 의 값 중 하나를 제외한 모든 값이 짝수번 발생합니다.
 
 ## 풀이
+
+```javascript
+function solution(A) {
+    let element = new Set();
+    
+    for(let i in A){
+        !element.has(A[i]) ? element.add(A[i]) : element.delete(A[i]);
+    }
+    
+    const result = [...element];
+    
+    return result[0];
+}
+```
+
 - 1차 풀이(66점)
 
 결국엔 짝수가 되지 않는 값을 찾는 것이고,

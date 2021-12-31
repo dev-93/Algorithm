@@ -48,6 +48,20 @@ P와 C는 [1..30,000] 범위의 정수입니다.
 솔루션에서 정확성에 중점을 둡니다. 솔루션의 성능은 평가의 초점이 아닙니다.
 
 ## 풀이
-한 게임에는 2명씩 들어갈 수 있습니다.
 
-주어진 P(플레이어 수)가 (쿼터 * 2)보다 작은지 큰지 비교하여 결과를 출력하였습니다.
+```javascript
+function solution(P, C) {
+    let result;
+    const perCourt = 2 * C;
+    
+    if (P >= perCourt) {
+        result = C
+    } else {
+        result = parseInt(P / 2);
+    }
+
+    return result;
+}
+```
+- 한 게임에는 2명씩 들어갈 수 있습니다.
+- 주어진 P(플레이어 수)가 (쿼터 * 2)보다 작은지 큰지 비교하여 결과를 출력하였습니다.

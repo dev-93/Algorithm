@@ -37,7 +37,7 @@ N은 [1..2,147,483,647] 범위의 정수입니다.
 
 ## 풀이
 
-```
+```javascript
 function solution(N) {
     if (!(N & (N - 1))) {
         return 0
@@ -48,7 +48,7 @@ function solution(N) {
     return zeroArr.length > 0 ? Math.max(...zeroArr) : 0;
 };
 ```
-s
-- 2의 지수는 값이 0이 나오니까 필터링 해주고,
-- 주어진 N을 2진수로 바꾸고, 배열안에 0인것들의 length를 구하고,
+
+- 첫번째 줄에서 2의 거듭제곱 여부 확인하는 방법을 사용하였다.
+- 주어진 N을 2진수로 바꾸고, 배열안에 0인것들의 length를 구한다.
 - 배열 값 들 중에서 제일 큰 수를 고른다.

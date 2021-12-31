@@ -23,9 +23,22 @@ array	commands	return
 [1, 5, 2, 6, 3, 7, 4]를 4번째부터 4번째까지 자른 후 정렬합니다. [6]의 첫 번째 숫자는 6입니다.
 [1, 5, 2, 6, 3, 7, 4]를 1번째부터 7번째까지 자릅니다. [1, 2, 3, 4, 5, 6, 7]의 세 번째 숫자는 3입니다.
 
-
-
 ## 풀이
+
+```javascript
+function solution(array, commands) {
+    const answer = [];
+    
+    commands.forEach((el) => {
+        const sliceArr = array.slice(el[0] -1, el[1]);
+        sliceArr.sort((a,b) => a - b);
+        answer.push(sliceArr[el[2] - 1]);
+    })
+    
+    return answer;
+}
+```
+
 - 주어진 commands 배의 길이만큼 forEach를 통해 반복문을 활용하였다.
 1. 반복문안에 배열의 (0번째 - 1)부터 배열의 1번째까지 잘라서 새로운 배열을 만든다.
 2. 1에서 나온 배열을 정렬한다.

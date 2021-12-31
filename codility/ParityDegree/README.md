@@ -40,6 +40,27 @@ N은 [1..1,000,000,000] 범위의 정수입니다.
 솔루션에서 정확성에 중점을 둡니다. 솔루션의 성능은 평가의 초점이 아닙니다.
 
 ## 풀이
+
+```javascript
+function solution(N) {
+    let maximumIndex = 0;
+
+    for(let i = 0; i < N ; i++) {
+        const power = Math.pow(2, i);
+        
+        if (N % power === 0) {
+            maximumIndex = i;
+        };
+
+        if(power > N) {
+            return maximumIndex;
+        };
+    }
+
+    return maximumIndex;
+}
+```
+
 ### [1차풀이](https://app.codility.com/demo/results/training825ERK-E6Q/) (75점)
 - 1차풀이에서는 루프문으로, 2의 거듭제곱을 구한 후, 주어진 N과 거듭제곱을 나눴을 때, 나머지가 0이면 몇번째 값인지 maximumIndex이라는 변수에 넣어줍니다. 거듭제곱의 값이 N보다 크게 되는 순간 maximumIndex를 리턴해줍니다.
 - 예외처리 사항으로는 N이 1이 주어진다면 0을 리턴시킨다.

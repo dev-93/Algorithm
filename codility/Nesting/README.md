@@ -81,7 +81,34 @@ N은 [3..100,000] 범위 내의 정수입니다.
 배열 A의 각 요소는 [−1,000..1,000] 범위의 정수입니다.
 
 ## 풀이
-### [1차풀이](https://app.codility.com/demo/results/training2X2BBJ-6XK/) (100점)
+
+```javascript
+function solution(S) {
+    if(S.length === 1) {
+        return 1;
+    };
+
+    const result = [];
+
+    for (let i = 0; i < S.length; i++ ) {
+        const element = S[i];
+
+        if(element === "(") {
+            result.push(element);
+        } else {
+            if (result[result.length -1] === "(") {
+                result.pop();
+            } else {
+                result.push(element);
+            }
+        }
+    }
+
+    return result.length ? 0 : 1;
+}
+```
+
+### [풀이](https://app.codility.com/demo/results/training2X2BBJ-6XK/) (100점)
 - **time complexity: O(N * log(N))** 
 - 배열 A를 오름차순으로 정리하는데, 이유는 가장큰수를 구하는게 핵심이다.
 - 세개를 곱하여서 가장 큰 수가 나오려면, 세가지 수가 다 양수이거나 2가지가 음수와 한가지 양수를 곱하는 상황이다

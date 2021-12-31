@@ -34,6 +34,17 @@ N은 [0..100,000] 범위 내의 정수입니다.
 배열 A의 각 요소는 [−1,000,000..1,000,000] 범위의 정수입니다.
 
 ## 풀이
-### [1차풀이](https://app.codility.com/demo/results/trainingF2DZZA-PAE/) (100점)
+
+```javascript
+function solution(A, B, K) {
+    const devideA = Math.floor((A-1) / K);
+    const devideB = Math.floor(B / K);
+    const result = devideB - devideA;
+    
+    return result;
+}
+```
+
+### [풀이](https://app.codility.com/demo/results/trainingF2DZZA-PAE/) (100점)
 - **time complexity: O(N*log(N)) or O(N)** 
 - 주어진 배열안에서 고유한 값의 수를 반환하는 것인데, 배열안에 중복제거를 사용한 방법은 Set을 이용하여 중복제거를 하였다. 이후 object를 spread operator를 이용하여 나열한 뒤, 배열의 길이를 리턴하였다.

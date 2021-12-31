@@ -24,6 +24,20 @@ participant	completion	return
 "mislav"는 참여자 명단에는 두 명이 있지만, 완주자 명단에는 한 명밖에 없기 때문에 한명은 완주하지 못했습니다.
 
 ## 풀이
+
+```
+function solution(participant, completion) {
+    participant.sort();
+    completion.sort();
+    
+    for(const key in participant) {
+        if (participant[key] !== completion[key]) {
+            return participant[key];
+        }
+    }
+}
+```
+
 - 주어진 배열의 총 길이는 1이상 10만 이하이다.
 - participant, completion 각 배열을 sort하여 정렬시킨다.
 - participant 배열만큼 루프문을 돌면서, participant의 값과 completion 값을 비교하여 값이 다르다면 participant의 값을 리턴시켜준다.

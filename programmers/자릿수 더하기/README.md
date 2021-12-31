@@ -20,6 +20,13 @@ N	 answer
 9 + 8 + 7 = 24이므로 24를 return 하면 됩니다.
 
 ## 풀이
+
+```javascript
+function solution(n){
+    return (n + '').split('').reduce((acc,cur) => Number(acc) + Number(cur), 0);
+}
+```
+
 - 숫자를 문자열로 바꾸어준다. (n + '')
 - 문자열을 배열로 만들면서, 안에 문자열을 쪼갠다. (split(''))
 - 이후 배열로 만들고 각 배열의 값들을 더해준다. reduce 함수이용

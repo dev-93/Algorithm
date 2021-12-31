@@ -28,6 +28,25 @@ numbers	result
 따라서 [2,5,7,9,12] 를 return 해야 합니다.
 
 ## 풀이
+
+```javascript
+function solution(numbers) {
+    const result = [];
+    
+    for (let i = 0; i < numbers.length; i++) {
+        for (let j = 0; j < numbers.length; j++) {
+            if(i !== j) {
+                result.push(numbers[i] + numbers[j]);
+            }
+        }    
+    };
+    
+    const unique = new Set(result);
+    
+    return [...unique].sort((a,b) => a - b);
+}
+```
+
 - 이중 루프에서 i와 j가 같지 않는다면 각 배열의 값을 더하여 빈배열에 넣어줍니다.
 - 배열에는 unique한 값이 있기 때문에, 중복제거를 해줍니다.
 - 배열에서 각 값들을 sorting하여 리턴시킵니다.

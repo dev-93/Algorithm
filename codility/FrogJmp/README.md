@@ -55,6 +55,15 @@ X, Y 및 D는 [1..1,000,000,000] 범위 내의 정수입니다.
 X ≤ Y.
 
 ## 풀이
+
+```javascript
+function solution(X, Y, D) {
+    const result = (Y -X) / D;
+
+    return Math.ceil(result);
+}
+```
+
 ### [1차풀이](https://app.codility.com/demo/results/trainingDA5GV4-M59/) (44점)
 - **time complexity: O(Y-X)** 
 

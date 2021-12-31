@@ -83,7 +83,29 @@ N은 [1..100,000] 범위 내의 정수입니다.
 
 
 ## 풀이
-### [1차풀이](https://app.codility.com/demo/results/trainingN7D2VZ-ZJE/) (100점)
+
+```javascript
+function solution(A) {
+    let sum = 0;
+    let result = 0;
+
+    for (let i = A.length-1; i >= 0; i--){
+        if (A[i] === 1) {
+            sum++
+        } else {
+            result += sum
+        };
+    }
+
+    if (result > 1000000000) {
+        return -1;
+    };
+
+    return result;
+}
+```
+
+### [풀이](https://app.codility.com/demo/results/trainingN7D2VZ-ZJE/) (100점)
 - **time complexity: O(N)** 
 - 문제에서, 주어진대로 0이 우측으로, 1이 좌측으로 해서 만나는 것들을 찾아서 갯수를 리턴시켜주고, 없다면 0을 리턴시켜준다.
 - 예외처리 사항으로는 1000000000이 넘으면 -1을 리턴시킨다.

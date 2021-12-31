@@ -54,6 +54,25 @@ A의 요소는 모두 별개입니다.
 
 
 ## 풀이
+
+```javascript
+function solution(A) {
+    if(!A.length) return 1;
+
+    A.sort((a,b) => a-b);
+    
+    if (A[0] === 2) {
+        return 1;
+    };
+    
+    for (let i = 0; i < A.length; i++) {
+        if(A[i] + 1 !== A[i+1]) {
+            return A[i] + 1;
+        }
+    }
+}
+```
+
 ### [1차풀이](https://app.codility.com/demo/results/trainingJXWV8X-X29/) (50점)
 - 배열 A가 빈배열로 주어진다면, 0을 리턴하고 배열 A를 정렬하여, A를 반복문안에서 A(i + 1)번째의 값은 A[i]의 값의 +1만 해주면 된다고 생각했다.
 - 틀린이유는 i + 1값만 고려하다 보니, A[i]가 2로 시작할때는, 1이 빠질 수 있다. 또한 배열 A가 빈배열로 주어지면 0이 아니다.

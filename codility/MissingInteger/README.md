@@ -41,7 +41,23 @@ N은 [0..1,000,000] 범위 내의 정수입니다.
 문자열 S는 "(" 및/또는 ")" 문자로만 구성됩니다.
 
 ## 풀이
-### [1차풀이](https://app.codility.com/demo/results/trainingEHCYHX-VPN/) (100점)
+
+```javascript
+function solution(A) {
+    let min = 1;
+    A.sort((a,b) => a - b);
+
+    A.map(num => {
+        if (num > 0 && num === min) {
+            min++ ;
+        }
+    })
+
+    return min;
+}
+```
+
+### [풀이](https://app.codility.com/demo/results/trainingEHCYHX-VPN/) (100점)
 - **time complexity: O(N))** 
 - 문자열 S는 '(' 또는 ')'로 구성되어 있습니다. 
 - 문제는 Stack의 개념으로, (로 시작하면 result 배열에 넣어준다

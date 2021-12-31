@@ -54,6 +54,33 @@ S의 길이는 [0..2,000,000] 범위 내에 있습니다.
 
 
 ## 풀이
+
+```javascript
+function solution(S) {
+    if(S.length === 1) {
+        return 0;
+    };
+
+    if(!S.length || S.length % 2 === 0) {
+        return -1;
+    };
+
+    let missCount = 0;
+
+    for (let i = 0; i< S.length; i++) {
+        if(S[i] !== S[S.length -1 -i]) {
+            missCount ++;
+        };
+    };
+
+    if(!missCount) {
+        return Math.floor(S.length / 2);
+    } else {
+        return -1;
+    };
+}
+```
+
 ### [1차풀이](https://app.codility.com/demo/results/training39EWEE-N9K/) (57점)
 - 문제에서 주어진것을 토대로 예외처리 하자면, S의 길이가 1이면 0을 리턴하고, S의 길이가 짝수이거나 0이면 -1을 리턴해줘야 합니다. 그리고 홀수이면, S의 가운데 인덱스를 리턴해줘야 합니다. 이 방법은 S의 길이를 2로 나누고 내림을 해줍니다.
 - 틀린이유: S의 각 요소를 abc로 주어줬을때 S의 길이가 홀수임에도 불구하고 같지 않은경우를 고려해주지 못했다.
