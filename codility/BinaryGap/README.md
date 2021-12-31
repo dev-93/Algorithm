@@ -36,8 +36,19 @@ function solution(N);
 N은 [1..2,147,483,647] 범위의 정수입니다.
 
 ## 풀이
-2의 지수는 값이 0이 나오니까 필터링 해주고,
 
-주어진 N을 2진수로 바꾸고, 배열안에 0인것들의 length를 구하고,
+```
+function solution(N) {
+    if (!(N & (N - 1))) {
+        return 0
+    }
+    const binary = N.toString(2);
+    const zeroArr = binary.split('1').filter(t => t !== "").map(t => t.length);
 
-배열 값 들 중에서 제일 큰 수를 고른다.
+    return zeroArr.length > 0 ? Math.max(...zeroArr) : 0;
+};
+```
+s
+- 2의 지수는 값이 0이 나오니까 필터링 해주고,
+- 주어진 N을 2진수로 바꾸고, 배열안에 0인것들의 length를 구하고,
+- 배열 값 들 중에서 제일 큰 수를 고른다.
