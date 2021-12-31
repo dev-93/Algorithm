@@ -52,7 +52,7 @@ function solution(N) {
 }
 ```
 
-- ### [1차풀이](https://app.codility.com/demo/results/trainingXRQ377-AY9/) (78점)
+- ### [1차풀이](https://app.codility.com/demo/results/training9872FN-FG7/) (78점)
 - **time complexity: O(N)**
 - 주어진 N의 약수 갯수를 구하는 문제이다.
 - 단순히 O(N)으로 풀었지만, 주어진 갯수가 너무커서 타임에러가 났다.
