@@ -25,7 +25,7 @@ participant	completion	return
 
 ## 풀이
 
-```
+```javascript
 function solution(participant, completion) {
     participant.sort();
     completion.sort();
