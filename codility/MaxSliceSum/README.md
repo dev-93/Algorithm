@@ -75,3 +75,9 @@ function solution(A) {
 - **time complexity: O(N3)** 
 - 2중 배열안에서 배열 A중에서 i번부터 j+1번까지 배열을 자르고, 그 배열안에 모든 원소를 합한다.
 - result 배열에 넣어주고 최대값을 리턴한다.
+- Time Error가 났다.
+
+### [2차풀이](https://app.codility.com/demo/results/training9G6PGX-2VK/) (100점)
+- **time complexity: O(N)** 
+- 시간 복잡도 O(N) localMaxSum은, A[i]와 기존값중에 최대값을 저장하고, globalMaxSum은 localMaxSum과 기존 값중에 최대값을 저장하고
+- globalMaxSum을 리턴한다. 만약 배열의 길이가 1이면은 첫번째 값을 리턴한다.
