@@ -2,7 +2,6 @@ const fs = require('fs');
 const input = fs.readFileSync("./input.txt").toString().split(' ').map(v => +v);
 
 const [a, b] = input;
-console.log(a,b);
 
 if (a > b) {
     console.log(">")
