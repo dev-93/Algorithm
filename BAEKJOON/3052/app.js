@@ -1,13 +1,9 @@
 const fs = require('fs');
-const input = fs.readFileSync('./input.txt').toString().split('\n');
+const input = fs.readFileSync('./input.txt').toString().trim().split('\n');
 // 백준
-// const input = fs.readFileSync("/dev/stdin").toString().split('\n');
+// const input = fs.readFileSync("/dev/stdin").toString().trim().split('\n');
 
-const arr = [];
+const arr = input.map(v => +v % 42);
+const set = new Set(arr);
 
-input.forEach(v => {
-    arr.push(+v % 42);
-})
-
-const set = new Set([...arr]);
 console.log(set.size);
