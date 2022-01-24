@@ -44,8 +44,8 @@
 
 ```javascript
 function solution(N, stages) {
-    let answer = [];
     const map = new Map();
+    const result = [];
     
     for(let i = 0; i < stages.length; i++) {
         if(map.has(stages[i])) {
@@ -57,7 +57,6 @@ function solution(N, stages) {
     }
 
     let count = stages.length;
-    const temp = [];
     
     for(let i = 1; i <= N; i++) {
         let value = map.has(i) ? map.get(i) : 0;
@@ -68,15 +67,14 @@ function solution(N, stages) {
             value: fail
         };
         
-        temp.push(status);
+        result.push(status);
         
-        count = count - value;
+        count -= value;
     };
     
-    temp.sort((a,b) => b.value - a.value);
-    temp.forEach(v => answer.push(v.stage));
+    result.sort((a,b) => b.value - a.value);
 
-    return answer;
+    return result.map(v => v.stage);
 }
 ```
 
