@@ -45,6 +45,3 @@ const twoSum = function (nums, target) {
 ```
 
 ### [풀이](https://leetcode.com/submissions/detail/631374472/)
-
-- **time complexity: O(N\*log(N)) or O(N)**
-- 주어진 배열안에서 고유한 값의 수를 반환하는 것인데, 배열안에 중복제거를 사용한 방법은 Set을 이용하여 중복제거를 하였다. 이후 object를 spread operator를 이용하여 나열한 뒤, 배열의 길이를 리턴하였다.
