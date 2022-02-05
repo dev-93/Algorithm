@@ -3,20 +3,20 @@ const fileLocation =
 
 const input = require("fs").readFileSync(fileLocation).toString().trim();
 
-let num = Number(input);
-let count = 1;
+let number = Number(input);
+let value = 1;
 
 while (true) {
-  num -= count;
-  if (num <= 0) {
-    num += count;
+  number -= value;
+  if (number <= 0) {
+    number += value;
     break;
   }
-  count++;
+  value++;
 }
 
-if (count % 2 === 1) {
-  console.log(`${count - (num - 1)}/${1 + (count - 1)}`);
+if (value % 2 === 1) {
+  console.log(`${value - (number - 1)}/${1 + (number - 1)}`);
 } else {
-  console.log(`${1 + (num - 1)}/${count - (num - 1)}`, 1);
+  console.log(`${1 + (number - 1)}/${value - (number - 1)}`);
 }
