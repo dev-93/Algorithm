@@ -8,34 +8,17 @@ let input = require("fs")
   .split(" ")
   .map(Number);
 
-const ascendingArr = [];
-const descendingArr = [];
-const mixedArr = [];
+console.log(input);
 
-for (let i = 1; i < input.length - 1; i++) {
-  if (input[i] === input[i - 1] + 1) {
-    ascendingArr.push(input[i]);
-    continue;
-  }
+const diff = input[1] - input[0];
+let res = "";
 
-  if (input[i] == input[i - 1] - 1) {
-    descendingArr.push(input[i]);
-    continue;
-  }
-
-  if (input[i] !== input[i - 1] + 1 || input[i] !== input[i - 1] - 1) {
-    mixedArr.push(input[i]);
+for (let i = 2; i < input.length; i++) {
+  const prev = input[i - 1];
+  const cur = input[i];
+  if (cur - prev !== diff) {
+    res = "mixed";
+    break;
   }
 }
-
-if (ascendingArr.length && !mixedArr.length) {
-  console.log("ascending");
-}
-
-if (descendingArr.length && !mixedArr.length) {
-  console.log("descending");
-}
-
-if (mixedArr.length) {
-  console.log("mixed");
-}
+console.log(res ? res : diff > 0 ? "ascending" : "descending");
