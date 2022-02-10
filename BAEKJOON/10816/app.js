@@ -7,29 +7,30 @@ const input = require("fs")
   .trim()
   .split("\n");
 
-const N = input[1].split(" ").map(Number);
-const M = input[3].split(" ").map(Number);
+const arr1 = input[1].split(" ").map(Number);
+const arr2 = input[3].split(" ").map(Number);
+
+const N = Number(input[0]);
+const M = Number(input[2]);
 
 const map = new Map();
 
 let answer = [];
 
-N.forEach((v) => {
-  const value = map.get(v);
-  if (value) {
-    map.set(v, value + 1);
+for (let i = 0; i < N; i++) {
+  if (map.get(arr1[i])) {
+    map.set(arr1[i], map.get(arr1[i]) + 1);
   } else {
-    map.set(v, 1);
+    map.set(arr1[i], 1);
   }
-});
+}
 
-M.forEach((v) => {
-  const value = map.get(v);
-  if (value) {
-    answer.push(value);
+for (let i = 0; i < M; i++) {
+  if (map.has(arr2[i])) {
+    answer.push(map.get(arr2[i]));
   } else {
     answer.push(0);
   }
-});
+}
 
 console.log(answer.join(" "));
