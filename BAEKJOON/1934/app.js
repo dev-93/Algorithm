@@ -7,12 +7,19 @@ const [N, ...arr] = require("fs")
   .trim()
   .split("\n");
 
-const gcd = (n, m) => {
-  if (m === 0) return n;
-  return gcd(m, n % m);
-};
+function gcd(a, b) {
+  while (b !== 0) {
+    let t = b;
+    b = a % b;
+    a = t;
+  }
+  return a;
+}
 
-const lcm = (n, m) => (n * m) / gcd(n, m);
+function lcm(a, b) {
+  let g = gcd(a, b);
+  return (a / g) * b;
+}
 
 arr.forEach((v) => {
   const temp = v.split(" ").map(Number);
