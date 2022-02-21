@@ -1,38 +1,40 @@
-const fileLocation = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
-const input = require('fs').readFileSync(fileLocation).toString().trim().split('\n').map(v => +v);
+const fileLocation =
+  process.platform === "linux" ? "/dev/stdin" : "./input.txt";
 
-const N = input.shift();
+const [N, ...nums] = require("fs")
+  .readFileSync(fileLocation)
+  .toString()
+  .trim()
+  .split("\n")
+  .map(Number);
+
+nums.sort((a, b) => a - b);
+
+const result = nums.reduce((acc, cur) => acc + cur) / N;
+const mid = nums[Math.floor(N / 2)];
+const min = nums[0];
+const max = nums[N - 1];
+
 const map = new Map();
-let max = Number.NEGATIVE_INFINITY;
-let sum = 0;
-
-input.sort((a, b) => a - b);
-
-for(let i = 0; i < N; i++) {
-    sum += input[i];
-
-    if(map.has(input[i])) {
-        const value = map.get(input[i]) + 1;
-        map.set(input[i], value);
-    } else {
-        map.set(input[i], 1);
-    }
-
-    max = Math.max(max, map.get(input[i]));
-}
-
+let maxCount = 1;
 const maxArr = [];
 
-for (let entry of map) {
-    if (entry[1] === max) maxArr.push(entry[0]);
+for (let num of nums) {
+  if (map.has(num)) {
+    map.set(num, map.get(num) + 1);
+    maxCount = Math.max(maxCount, map.get(num));
+  } else {
+    map.set(num, 1);
+  }
 }
 
-const AverageSum = Math.round(sum / N);
-const mid = input[Math.floor(N / 2)];
-const maxCount = maxArr.length >=2 ? maxArr[1] : maxArr[0];
-const diff = Math.abs(input[N-1] - input[0]);
+for (let entry of map) {
+  if (entry[1] === maxCount) {
+    maxArr.push(entry[0]);
+  }
+}
 
-console.log(AverageSum);
+console.log(Math.round(result) === -0 ? 0 : Math.round(result));
 console.log(mid);
-console.log(maxCount);
-console.log(diff);
+console.log(maxArr.length >= 2 ? maxArr[1] : maxArr[0]);
+console.log(Math.abs(max - min));
