@@ -1,58 +1,44 @@
 const fileLocation =
   process.platform === "linux" ? "/dev/stdin" : "./input.txt";
 
-let [N, ...temp] = require("fs")
+let input = require("fs")
   .readFileSync(fileLocation)
   .toString()
   .trim()
-  .split("\n");
+  .split("\n")
+  .map(Number);
 
-const input = temp.map(Number);
-const arr = [];
+const n = 2;
+const m = 10000;
 
-input.sort((a, b) => a - b);
+let prime = [];
 
-function solution(n) {
-  arr.splice(0, 2, false, false);
-
-  for (let i = 2; i <= n; i++) {
-    arr.push(i);
-  }
-
-  for (let i = 2; i * i <= n; i++) {
-    if (arr[i]) {
-      for (let j = i * i; j <= n; j += i) {
-        arr[j] = false;
-      }
-    }
-  }
-  return arr.filter((e) => e);
+for (let i = n; i <= m; i++) {
+  prime[i] = i;
 }
 
-const answer = [];
-const result = solution(input[input.length - 1]);
+for (let i = 2; i <= m; i++) {
+  if (prime[i] === 0) continue;
 
-input.forEach((v, index) => {
-  let tempArr = [];
+  for (let j = i + i; j <= m; j += i) {
+    prime[j] = 0;
+  }
+}
+prime = prime.filter((n) => n !== 0);
 
-  for (let i = 0; i < result.length; i++) {
-    let min = Number.POSITIVE_INFINITY;
-    for (let j = 0; j < result.length; j++) {
-      if (result[i] + result[j] === v && i <= j) {
-        if (min > Math.abs(result[j] - result[i])) {
-          min = Math.abs(result[j] - result[i]);
-          tempArr.push([result[i], result[j]]);
-        }
-      }
+for (let i = 0; i < input.length; i++) {
+  const num = Number(input[i]);
+  let answer = [];
+
+  for (let j = 0; prime[j] < num / 2 + 1; j++) {
+    const index = prime.indexOf(num - prime[j]);
+    if (index !== -1) {
+      answer.push([prime[j], prime[index]]);
     }
   }
 
-  tempArr.sort((a, b) => Math.abs(a[1] - a[0]) - Math.abs(b[1] - b[0]));
-  tempArr = tempArr[0];
-
-  answer.push(tempArr);
-});
-
-answer.forEach((v) => {
-  console.log(v[0], v[1]);
-});
+  if (answer.length !== 0) {
+    const a = answer.pop();
+    console.log(`${a[0]} ${a[1]}`);
+  }
+}
