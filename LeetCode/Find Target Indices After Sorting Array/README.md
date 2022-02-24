@@ -11,11 +11,17 @@ Return a list of the target indices of nums after sorting nums in non-decreasing
 ```javascript
 const targetIndices = function (nums, target) {
   nums.sort((a, b) => a - b);
-  const arr = [];
-  nums.filter((v, i) => v === target && arr.push(i));
 
-  return arr;
+  let ans = [];
+  for (let i = 0; i < nums.length; i++) {
+    while (nums[i] === target) {
+      ans.push(i);
+      i++;
+    }
+    if (ans.length) break;
+  }
+  return ans;
 };
 ```
 
-### [풀이](https://leetcode.com/submissions/detail/647993788/)
+### [풀이](https://leetcode.com/submissions/detail/648001020/)
