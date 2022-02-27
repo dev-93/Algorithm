@@ -6,3 +6,7 @@
   - 백준 플랫폼의 폴더 안에는 input.txt: 예제, app.js: 문제풀이로 구성되어 있습니다.
 
 ### [문제풀이 기록](https://taenam.notion.site/Algorithm-713f1696765e4b108a7ccc7adf179377)
+
+### [Baekjoon](https://solved.ac/profile/cr000)
+
+### [LeetCode](https://leetcode.com/dev-93/)
