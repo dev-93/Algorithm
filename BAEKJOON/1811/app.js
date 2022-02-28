@@ -7,58 +7,44 @@ const input = require("fs")
   .trim()
   .split("\n");
 
-let [n, m, b] = input.shift().split(" ").map(Number);
+const [N, M, B] = input[0].split(" ").map((v) => +v);
+input.shift();
 
-const arr = input.flatMap((v) => {
-  return v.split(" ").map(Number);
-});
+const land = input.join(" ").split(" ");
+const heightArr = new Array(257).fill(0);
 
-const map = new Map();
+land.forEach((v) => heightArr[v]++);
 
-for (let i = 0; i < n * m; i++) {
-  if (map.has(arr[i])) {
-    map.set(arr[i], map.get(arr[i]) + 1);
-  } else {
-    map.set(arr[i], 1);
-  }
-}
+const answer = function (B, heightArr) {
+  let addition, removal;
+  let [height, curTime, minTime] = [0, 0, Number.MAX_VALUE];
+  for (let i = 256; i >= 0; i--) {
+    addition = 0;
+    removal = 0;
+    heightArr.forEach((v, idx) => {
+      if (i < idx) removal += (idx - i) * v;
+      else addition += (i - idx) * v;
+    });
 
-let maxCount = Number.NEGATIVE_INFINITY;
-let maxNumber = Number.NEGATIVE_INFINITY;
-let minCount = Number.POSITIVE_INFINITY;
-let minNumber = Number.POSITIVE_INFINITY;
-const avg = Math.round(arr.reduce((acc, cur) => acc + cur) / arr.length);
+    if (B < addition - removal) {
+      continue;
+    }
 
-for (let entry of map) {
-  if (entry[1] < minCount) {
-    minCount = entry[1];
-    minNumber = entry[0];
-  }
+    curTime = addition + removal * 2;
 
-  if (entry[1] > maxCount) {
-    maxCount = entry[1];
-    maxNumber = entry[0];
-  }
-}
-
-let time = 0;
-
-arr.forEach((v, i) => {
-  if (minCount > b) {
-    arr[i] = arr[i] + time;
-    time--;
-    b--;
-  } else {
-    if (v > avg) {
-      time = (v - avg) * 2;
-    } else {
-      time = avg - v;
-      arr[i] = arr[i] + time;
+    if (minTime !== Number.MAX_VALUE && minTime < curTime) {
+      break;
+    }
+    if (minTime > curTime) {
+      minTime = curTime;
+      height = i;
     }
   }
-});
 
-// console.log(time);
-// console.log(Math.max(...arr));
+  if (minTime === Number.MAX_VALUE) {
+    minTime = 0;
+  }
+  return `${minTime}\n${height}`;
+};
 
-console.log(minCount, b, time, avg);
+console.log(answer(B, heightArr));
