@@ -18,10 +18,8 @@ for (let i = 1; i <= N; i++) {
 }
 
 for (let i = N + 1; i <= N + M; i++) {
-  for (info of map) {
-    if (info[0] === input[i]) {
-      arr.push(info[1]);
-    }
+  if (map.has(input[i])) {
+    arr.push(map.get(input[i]));
   }
 }
 
