@@ -7,31 +7,15 @@ const input = require("fs")
   .trim()
   .split("\n");
 
-let temp = input.shift().split(" ");
-let N = +temp[0];
-let K = +temp[1];
+let [N, K] = input[0].split(" ").map(Number);
 
-let count = 0;
-const money = input.map(Number);
-
-while (K !== 0) {
-  if (K > money[N - 1]) {
-    const div = K / money[N - 1];
-    count += Math.floor(div);
-    K = K - money[N - 1] * Math.floor(div);
-    continue;
+const COIN_LIST = input.slice(1).map(Number);
+let result = 0;
+for (let i = N - 1; i > -1; i--) {
+  if (K >= COIN_LIST[i]) {
+    result += Math.floor(K / COIN_LIST[i]);
+    K %= COIN_LIST[i];
   }
-  for (let i = 0; i < N; i++) {
-    if (K < money[i]) {
-      const div = K / money[i - 1];
-      count += Math.floor(div);
-      K = K - money[i - 1] * Math.floor(div);
-    } else if (K === money[i]) {
-      count++;
-      console.log(count);
-      return;
-    }
-  }
+  if (K === 0) break;
 }
-
-console.log(count);
+console.log(result);
