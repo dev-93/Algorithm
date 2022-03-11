@@ -7,6 +7,5 @@
 
 ### [문제풀이 기록](https://taenam.notion.site/Algorithm-713f1696765e4b108a7ccc7adf179377)
 
-### [Baekjoon](https://solved.ac/profile/cr000)
-
-### [LeetCode](https://leetcode.com/dev-93/)
+[![Solved.ac
+프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=cr000)](https://solved.ac/cr000)
